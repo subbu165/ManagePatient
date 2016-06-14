@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Premium Investments 360-degree View</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+var active_color = '#000'; // Colour of user provided text
+var inactive_color = '#999'; // Colour of default text
+
+window.onload = formDefaultValues;
+
+function formDefaultValues() {
+  var fields = getElementsByClassName(document, "input", "default-value");
+  if (!fields) {
+    return;
+  }
+  var default_values = new Array();
+  for (var i = 0; i < fields.length; i++) {
+    fields[i].style.color = inactive_color;
+    if (!default_values[fields[i].id]) {
+      default_values[fields[i].id] = fields[i].value;
+    }
+    fields[i].onfocus = function() { 
+      if (this.value == default_values[this.id]) {
+        this.value = '';
+        this.style.color = active_color;
+      }
+      this.onblur = function() {
+        if (this.value == '') {
+          this.style.color = inactive_color;
+          this.value = default_values[this.id];
+        }
+      }
+    }
+  }
+}
+
+
+function getElementsByClassName(oElm, strTagName, strClassName){
+  var arrElements = (strTagName == "*" && oElm.all)? oElm.all : oElm.getElementsByTagName(strTagName);
+  var arrReturnElements = new Array();
+  strClassName = strClassName.replace(/\-/g, "\\-");
+  var oRegExp = new RegExp("(^|\\s)" + strClassName + "(\\s|$)");
+  var oElement;
+  for (var i = 0; i < arrElements.length; i++) {
+    oElement = arrElements[i];
+    if (oRegExp.test(oElement.className)) {
+      arrReturnElements.push(oElement);
+    }
+  }
+  return (arrReturnElements);
+}
+</script>
+
+
+</head>
+
+<body>
+
+<!--- Header --->
+<div id="header-outer">
+<table id="header" cellspacing="0" cellpadding="0">
+  <tr><td width="240"><img src="images/logo-preview.png" width="142" height="34" /></td>
+  <td align="center" valign="bottom" width="460"><div id="searchheader">
+      <form id="form1" name="form1" method="post" action="">
+        <input type="text" name="textfield" id="searchbox" />
+        <a href="june-jenkinson.html"><img src="images/search-submit-gray.png" id="searchbutton" align="absmiddle" border="0" /></a>
+      </form>
+</div></td>
+  <td  width="240px" align="right" class="whitetext">Logged in as <strong>Physician</strong> | <a href="#" class="whitelink">Help</a></td></tr>
+</table>
+</div>
+<!--- END Header --->
+
+<!--- Breadcrumbs --->
+<div id="breadcrumbs-outer"></div>
+<!--- END Breadcrumbs --->
+
+
+
+<p>&nbsp;</p>
+</body>
+</html>
